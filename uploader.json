@@ -596,6 +596,11 @@
             "symbolic_name": "multipath_conf_initramfs"
         },
         {
+            "command": "/sbin/modinfo i40e",
+            "pattern": [],
+            "symbolic_name": "modinfo_i40e"
+        },
+        {
             "command": "/bin/mysqladmin variables",
             "pattern": [],
             "symbolic_name": "mysqladmin_vars"

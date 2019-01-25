@@ -601,6 +601,11 @@
             "symbolic_name": "mysqladmin_vars"
         },
         {
+            "command": "/sbin/modinfo i40e",
+            "pattern": [],
+            "symbolic_name": "modinfo_i40e"
+        },
+        {
             "command": "/usr/sbin/named-checkconf -p",
             "pattern": [
                 "DNSSEC-ENABLE",

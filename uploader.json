@@ -2074,6 +2074,11 @@
             "symbolic_name": "nfnetlink_queue"
         },
         {
+            "command": "/usr/sbin/nft list ruleset",
+            "pattern": [],
+            "symbolic_name": "nft_ruleset"
+        },
+        {
             "file": "/etc/exports",
             "pattern": [
                 "*",

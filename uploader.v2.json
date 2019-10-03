@@ -1,6 +1,16 @@
 {
     "commands": [
         {
+            "command": "python -m insights.tools.cat --no-header aws_instance_id_doc",
+            "pattern": [],
+            "symbolic_name": "aws_instance_id_doc"
+        },
+        {
+            "command": "python -m insights.tools.cat --no-header aws_instance_id_pkcs7",
+            "pattern": [],
+            "symbolic_name": "aws_instance_id_pkcs7"
+        },
+        {
             "command": "python -m insights.tools.cat --no-header aws_instance_type",
             "pattern": [],
             "symbolic_name": "aws_instance_type"
@@ -26,22 +36,32 @@
             "symbolic_name": "brctl_show"
         },
         {
-            "command": "/usr/bin/ceph health detail -f json-pretty",
+            "command": "/usr/bin/ceph health detail -f json",
             "pattern": [],
             "symbolic_name": "ceph_health_detail"
         },
         {
-            "command": "/usr/bin/ceph osd dump -f json-pretty",
+            "command": "/usr/bin/ceph df detail -f json",
+            "pattern": [],
+            "symbolic_name": "ceph_df_detail"
+        },
+        {
+            "command": "/usr/bin/ceph osd dump -f json",
             "pattern": [],
             "symbolic_name": "ceph_osd_dump"
         },
         {
-            "command": "/usr/bin/ceph osd tree -f json-pretty",
+            "command": "/usr/bin/ceph osd df -f json",
+            "pattern": [],
+            "symbolic_name": "ceph_osd_df"
+        },
+        {
+            "command": "/usr/bin/ceph osd tree -f json",
             "pattern": [],
             "symbolic_name": "ceph_osd_tree"
         },
         {
-            "command": "/usr/bin/ceph -s -f json-pretty",
+            "command": "/usr/bin/ceph -s -f json",
             "pattern": [],
             "symbolic_name": "ceph_s"
         },
@@ -273,6 +293,11 @@
             "symbolic_name": "gluster_v_info"
         },
         {
+            "command": "/usr/sbin/gluster peer status",
+            "pattern": [],
+            "symbolic_name": "gluster_peer_status"
+        },
+        {
             "command": "/usr/sbin/gluster volume status",
             "pattern": [],
             "symbolic_name": "gluster_v_status"
@@ -482,6 +507,13 @@
             "command": "/bin/ls -ld /var/opt/mssql",
             "pattern": [],
             "symbolic_name": "ls_var_opt_mssql"
+        },
+        {
+            "command": "/bin/ls -lan /usr/lib64",
+            "pattern": [
+                "total"
+            ],
+            "symbolic_name": "ls_usr_lib64"
         },
         {
             "command": "/bin/ls -ln /usr/sbin",
@@ -836,6 +868,11 @@
             "symbolic_name": "nova_migration_uid"
         },
         {
+            "command": "/usr/bin/hammer --config /root/.hammer/cli.modules.d/foreman.yml --output csv task list --search 'state=running AND ( label=Actions::Candlepin::ListenOnCandlepinEvents OR label=Actions::Katello::EventQueue::Monitor )'",
+            "pattern": [],
+            "symbolic_name": "hammer_task_list"
+        },
+        {
             "command": "/usr/sbin/ntpq -c 'rv 0 leap'",
             "pattern": [],
             "symbolic_name": "ntpq_leap"
@@ -889,6 +926,11 @@
             "command": "/usr/bin/find /sys/devices/ -maxdepth 10 -mindepth 9 -name stat -type f",
             "pattern": [],
             "symbolic_name": "pci_rport_target_disk_paths"
+        },
+        {
+            "command": "/usr/sbin/pcs quorum status",
+            "pattern": [],
+            "symbolic_name": "pcs_quorum_status"
         },
         {
             "command": "/usr/sbin/pcs status",
@@ -1009,6 +1051,11 @@
             "command": "python -m insights.tools.cat --no-header rhev_data_center",
             "pattern": [],
             "symbolic_name": "rhev_data_center"
+        },
+        {
+            "command": "/usr/sbin/rndc status",
+            "pattern": [],
+            "symbolic_name": "rndc_status"
         },
         {
             "command": "/usr/bin/crontab -l -u root",
@@ -1590,6 +1637,7 @@
         {
             "file": "/etc/etcd/etcd.conf",
             "pattern": [
+                "ETCD_DATA_DIR",
                 "["
             ],
             "symbolic_name": "etcd_conf"
@@ -1636,11 +1684,6 @@
             "file": "/etc/systemd/journald.conf.d/()*.+\\.conf",
             "pattern": [],
             "symbolic_name": "etc_journald_conf_d"
-        },
-        {
-            "file": "/var/log/foreman/production.log",
-            "pattern": [],
-            "symbolic_name": "foreman_production_log"
         },
         {
             "file": "/etc/fstab",
@@ -3352,5 +3395,5 @@
     "pre_commands": {
         "iface": "/sbin/ip -o link | awk -F ': ' '/.*link\\/ether/ {print $2}'"
     },
-    "version": "2019-09-12T14:24:56.017756"
+    "version": "2019-09-27T14:18:15.985083"
 }

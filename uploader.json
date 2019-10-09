@@ -3336,7 +3336,7 @@
             "pattern": []
         },
         {
-            "glob": "/boot/config-*",
+            "file": "/boot/()config-.*",
             "symbolic_name": "kernel_config",
             "pattern": []
         },
